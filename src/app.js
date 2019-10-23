@@ -1,6 +1,7 @@
 const path=require('path') //core module.no need to install
 const express=require('express');
 const app=express();
+const port=process.env.PORT||3000 //gets value if it can  otherwise run 3000(locally)
 const hbs=require('hbs')
 
 const request=require('request')
@@ -98,6 +99,6 @@ app.get('*',(req,res)=>{
 	})
 })
 
-app.listen(3000,()=>{
-	console.log('server has started !!!')
+app.listen(port,()=>{
+	console.log('server has started on'+port)
 })
