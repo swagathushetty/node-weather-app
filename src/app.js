@@ -39,7 +39,7 @@ app.get('/about',(req,res)=>{
 
 app.get('/help',(req,res)=>{
 	res.render('help',{
-		helptxt:'i am stranded herer',
+		helptxt:'i am stranded here',
 		title:'Help',
 		name:'swagath shetty'
 	}) 
@@ -62,8 +62,9 @@ app.get('/weather',(req,res)=>{
 				return res.send({error:error})
 			}
 			res.send(
-				{location:location,
-			     forecast:forecastData})
+				{forecast: forecastData,
+					location,
+					address: req.query.addresss})
 		})
 	})
 });
