@@ -12,7 +12,15 @@ request({url,json:true},(error,{body})=>{
 	}else if(body.error){
 		 callback('sorry location doesnt exist',undefined)
 	}else{
-		callback(undefined,body.daily.data[0].summary + ' It is currently ' + body.currently.temperature + ' degress out. This high today is ' + body.daily.data[0].temperatureHigh + ' with a low of ' + body.daily.data[0].temperatureLow + '. There is a ' + body.currently.precipProbability + '% chance of rain.')
+		
+		fTemp = Number(body.currently.temperature)
+		Ctemp = (fTemp-32)*5/9
+
+		fhightemp = Number(body.daily.data[0].temperatureHigh )
+		chightemp=(fhightemp-32)*5/9
+		flowtemp = Number(body.daily.data[0].temperatureLow )
+        clowtemp=(flowtemp-32)*5/9
+		callback(undefined,body.daily.data[0].summary + ' It is currently ' +Ctemp+ ' degress out. This high today is ' + chightemp+ ' with a low of ' +clowtemp+ '. There is a ' + body.currently.precipProbability + '% chance of rain.')
 	     }
 })
 

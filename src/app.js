@@ -63,8 +63,8 @@ app.get('/weather',(req,res)=>{
 			}
 			res.send(
 				{forecast: forecastData,
-					location,
-					address: req.query.addresss})
+				location:location,
+				address: req.query.addresss})
 		})
 	})
 });
@@ -101,5 +101,5 @@ app.get('*',(req,res)=>{
 })
 
 app.listen(port,()=>{
-	console.log('server has started on'+port)
+	console.log('server has started on '+port)
 })
